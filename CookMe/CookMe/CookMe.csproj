@@ -95,6 +95,9 @@
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="Binding\MainRecipe.cs" />
+    <Compile Include="DishCookPage.xaml.cs">
+      <DependentUpon>DishCookPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="FavPage.xaml.cs">
       <DependentUpon>FavPage.xaml</DependentUpon>
     </Compile>
@@ -122,6 +125,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </ApplicationDefinition>
+    <Page Include="DishCookPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="FavPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -210,6 +217,7 @@
     <Resource Include="Assets\RecipeImages\chocolate-valentines-day.jpg" />
   </ItemGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.Phone.Controls, Version=8.0.0.0, Culture=neutral, PublicKeyToken=24eec0d8c86cda1e, processorArchitecture=MSIL" />
     <Reference Include="Microsoft.Phone.Controls.Toolkit">
       <HintPath>..\..\PanoramaUI_Check\PanoramaUI_Check\Bin\Microsoft.Phone.Controls.Toolkit.dll</HintPath>
     </Reference>

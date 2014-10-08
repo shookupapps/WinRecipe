@@ -41,10 +41,47 @@
         </Grid.Background>
 
         <!--Pivot Control-->
-        <phone:Pivot Title="Cook Me">
+        <phone:Pivot Title="Cook Me" FontFamily="Alex Brush">
             <!--Pivot item one-->
             <phone:PivotItem Header="Today's Recipe" FontFamily="Agency FB" Margin="12,10,12,0">
-                <Grid Margin="0,0,0,74"  >
+                <Grid Height="480">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid Grid.Row="0" Grid.ColumnSpan="2" Margin="0,0,0,5">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="50"/>
+                        </Grid.RowDefinitions>
+                        <Image Grid.Row="0" Grid.RowSpan="2" Source="/Assets/RecipeImages/Strawberry-Shortcake-No-Bake-Ice-Box-Cake-tsri.jpg" Stretch="UniformToFill"/>
+                        <Rectangle Grid.Row="1" Opacity="0.4" StrokeThickness="0" Fill="Black"/>
+                        <TextBlock Grid.Row="1" Text="Red Chocolate" FontFamily="Helvetica 45 Light" FontSize="25" VerticalAlignment="Center" Margin="5,0,0,0"/>
+                    </Grid>
+                    <Grid Grid.Row="1" Grid.Column="0" Margin="0,0,2.5,0">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="50"/>
+                        </Grid.RowDefinitions>
+                        <Image Grid.Row="0" Grid.RowSpan="2" Source="/Assets/RecipeImages/italian-side-dishes.jpg" Stretch="UniformToFill"/>
+                        <Rectangle Grid.Row="1" Opacity="0.4" StrokeThickness="0" Fill="Black"/>
+                        <TextBlock Grid.Row="1" Text="Red Chocolate" FontFamily="Helvetica 45 Light" FontSize="25" VerticalAlignment="Center" Margin="5,0,0,0"/>
+                    </Grid>
+                    <Grid Grid.Row="1" Grid.Column="1" Margin="2.5,0,0,0">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="50"/>
+                        </Grid.RowDefinitions>
+                        <Image Grid.Row="0" Grid.RowSpan="2" Source="/Assets/RecipeImages/lasagne.jpg" Stretch="UniformToFill"/>
+                        <Rectangle Grid.Row="1" Opacity="0.4" StrokeThickness="0" Fill="Black"/>
+                        <TextBlock Grid.Row="1" Text="Red Chocolate" FontFamily="Helvetica 45 Light" FontSize="25" VerticalAlignment="Center" Margin="5,0,0,0"/>
+                    </Grid>
+                </Grid>
+                <!--<Grid Margin="0,0,0,74"  >
                     <Grid.RowDefinitions>
                         <RowDefinition Height="*"/>
                         <RowDefinition Height="70"/>
@@ -52,13 +89,13 @@
                     <Image Grid.Row="0" Grid.RowSpan="2" Source="/Assets/RecipeImages/Strawberry-Shortcake-No-Bake-Ice-Box-Cake-tsri.jpg" Stretch="UniformToFill"/>
                     <Rectangle Grid.Row="1" Opacity="0.4" StrokeThickness="0" Fill="Black"/>
                     <TextBlock Grid.Row="1" Text="Red Chocolate" FontFamily="Helvetica 45 Light" FontSize="36" VerticalAlignment="Center" Margin="5,0,0,0"/>
-                </Grid>
+                </Grid>-->
 
             </phone:PivotItem>
 
             <!--Pivot item two-->
             <phone:PivotItem Header="What to Cook" Margin="0,10,0,0">
-                <ListBox x:Name="MainList" ItemsSource="{Binding}" FontFamily="Caviar Dreams" HorizontalAlignment="Left" Width="461" Background="{x:Null}" Margin="10,0,0,0" Tap="MainList_Tap">
+                <ListBox x:Name="MainList" ItemsSource="{Binding}" FontFamily="Caviar Dreams" HorizontalAlignment="Left" Width="445" Background="{x:Null}" Margin="10,0,0,0" Tap="MainList_Tap">
                     <ListBox.ItemTemplate>
                         <DataTemplate>
                             <Grid Height="250" Width="420"  toolkit:TiltEffect.IsTiltEnabled="True" Background="{x:Null}" Margin="0,5,0,0">

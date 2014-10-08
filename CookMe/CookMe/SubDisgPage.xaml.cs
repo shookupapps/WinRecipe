@@ -38,5 +38,10 @@ namespace CookMe
             SubDishList.DataContext = SB;
 
         }
+
+        private void SubDishList_Tap(object sender, System.Windows.Input.GestureEventArgs e)
+        {
+            NavigationService.Navigate(new Uri("/DishCookPage.xaml", UriKind.Relative));
+        }
     }
 }
