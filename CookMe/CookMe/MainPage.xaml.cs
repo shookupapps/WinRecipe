@@ -66,6 +66,17 @@ namespace CookMe
             NavigationService.Navigate(new Uri("/ShopListPage.xaml", UriKind.Relative));
         }
 
+        private void SPLargeGrid_Tap(object sender, System.Windows.Input.GestureEventArgs e)
+        {
+            NavigationService.Navigate(new Uri("/DishCookPage.xaml", UriKind.Relative));
+        }
+
+        private void PhoneApplicationPage_Loaded(object sender, RoutedEventArgs e)
+        {
+            //MainPageFloatAnim.Begin();
+        }
+
+     
        
        
         

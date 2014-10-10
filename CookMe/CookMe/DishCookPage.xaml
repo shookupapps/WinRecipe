@@ -39,8 +39,9 @@
                             <RowDefinition Height="50"/>
                         </Grid.RowDefinitions>
                         <Image Grid.Row="0" Grid.RowSpan="2" Source="/Assets/RecipeImages/Strawberry-Shortcake-No-Bake-Ice-Box-Cake-tsri.jpg" Stretch="UniformToFill"/>
-                        <Rectangle Grid.Row="1" Opacity="0.4" StrokeThickness="0" Fill="Black"/>
-                        <TextBlock Grid.Row="1" Text="Red Chocolate" FontFamily="Helvetica 45 Light" FontSize="25" VerticalAlignment="Center" Margin="5,0,0,0"/>
+						<Image Grid.Row="0" Grid.RowSpan="2" Source="Assets/Filter Shade/large.png" Stretch="UniformToFill"/>
+                        
+                        <TextBlock Grid.Row="1" Text="Red Chocolate" FontFamily="Arial" FontSize="25" VerticalAlignment="Center" Margin="5,0,0,0"/>
                     </Grid>
                     <Grid Grid.Row="1" Grid.Column="0" Margin="0,0,2.5,5" Opacity="100">
                         <Grid.RowDefinitions>
@@ -50,8 +51,8 @@
                         <Rectangle Grid.RowSpan="2" Fill="Black" Opacity="0.3" RadiusX="5" RadiusY="5"/>
                         <Rectangle Fill="White" Height="1" HorizontalAlignment="Center" Margin="0,5,0,44" Width="120" Grid.Row="1" Opacity="0.3"/>
 
-                        <TextBlock Grid.Row="1" Text="Servings" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20" FontFamily="Helvetica 45 Light" FontStyle="Italic"/>
-                        <TextBlock Grid.Row="0" Text="6" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="30" Foreground="White" Grid.RowSpan="2" Width="38" Margin="64,8,48,39"/>
+                        <TextBlock Grid.Row="1" Text="Servings" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="22.667" FontFamily="Courier New" FontStyle="Italic"/>
+                        <TextBlock Grid.Row="0" Text="6" HorizontalAlignment="Center" VerticalAlignment="Bottom" FontSize="30" Foreground="White" Grid.RowSpan="2" Width="38" Margin="64,0,48,44" FontFamily="Arial"/>
                     </Grid>
                     <Grid Grid.Row="1" Grid.Column="1" Margin="2.5,0,0,5" Opacity="100">
                         <Grid.RowDefinitions>
@@ -60,8 +61,8 @@
                         </Grid.RowDefinitions>
                         <Rectangle Grid.RowSpan="2" Fill="Black" Opacity="0.3" RadiusX="5" RadiusY="5"/>
                         <Rectangle Fill="White" Height="1" HorizontalAlignment="Center" Margin="0,5,0,44" Width="120" Grid.Row="1" Opacity="0.3"/>
-                        <TextBlock Grid.Row="1" Text="Prep Time" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20" FontFamily="Helvetica 45 Light" FontStyle="Italic"/>
-                        <TextBlock Grid.Row="0" Text="10min" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="30" Foreground="White"  Grid.RowSpan="2" Margin="20,15,19,48" FontFamily="Segoe UI"/>
+                        <TextBlock Grid.Row="1" Text="Prep Time" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="22.667" FontFamily="Courier New" FontStyle="Italic"/>
+                        <TextBlock Grid.Row="0" Text="10 min" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="30" Foreground="White"  Grid.RowSpan="2" Margin="20,15,19,48" FontFamily="Arial"/>
                     </Grid>
                     <Grid Grid.Row="1" Grid.Column="2" Margin="2.5,0,0,5" Opacity="100">
                         <Grid.RowDefinitions>
@@ -70,8 +71,8 @@
                         </Grid.RowDefinitions>
                         <Rectangle Grid.RowSpan="2" Fill="Black" Opacity="0.3" Margin="2.5,0,0,0" RadiusX="5" RadiusY="5"/>
                         <Rectangle Fill="White" Height="1" HorizontalAlignment="Center" Margin="0,5,0,44" Width="120" Grid.Row="1" Opacity="0.3"/>
-                        <TextBlock Grid.Row="1" Text="Cook Time" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20" FontFamily="Helvetica 45 Light" FontStyle="Italic"/>
-                        <TextBlock Grid.Row="0" Text="20 min" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="30" Foreground="White"  Grid.RowSpan="2" Margin="20,15,19,48" FontFamily="Segoe UI"/>
+                        <TextBlock Grid.Row="1" Text="Cook Time" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="22.667" FontFamily="Courier New" FontStyle="Italic"/>
+                        <TextBlock Grid.Row="0" Text="20 min" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="30" Foreground="White"  Grid.RowSpan="2" Margin="20,15,19,48" FontFamily="Arial"/>
                     </Grid>
                 </Grid>
             </phone:PivotItem>
@@ -79,7 +80,7 @@
             <!--Pivot item two-->
             <phone:PivotItem Header="Ingredients">
                 <Grid>
-                    <ListBox x:Name="ingreList" ItemsSource="{Binding}" FontFamily="Caviar Dreams" HorizontalAlignment="Left" Width="456" Background="{x:Null}" >
+                    <ListBox x:Name="ingreList" ItemsSource="{Binding}" FontFamily="Open Sans Light" HorizontalAlignment="Left" Width="456" Background="{x:Null}" >
                         <ListBox.ItemTemplate>
                             <DataTemplate>
                                 <Grid Width="450" Margin="0,0,0,5">
@@ -88,7 +89,7 @@
                                         <ColumnDefinition Width="*"/>
                                     </Grid.ColumnDefinitions>
                                     <!--<Rectangle Grid.ColumnSpan="2" Opacity="0.05" Fill="Black"/>-->
-                                    <TextBlock Grid.Column="1" Text="{Binding FoodName}" FontFamily="Open Sans" FontSize="28" TextWrapping="Wrap"/>
+                                    <TextBlock Grid.Column="1" Text="{Binding FoodName}" FontFamily="Open Sans Light" FontSize="28" TextWrapping="Wrap"/>
                                 </Grid>
                             </DataTemplate>
                         </ListBox.ItemTemplate>
@@ -98,8 +99,17 @@
             <phone:PivotItem Header="Directions">
                 <Grid/>
             </phone:PivotItem>
-            <phone:PivotItem Header="Notes">
-                <Grid/>
+            <phone:PivotItem Header="Nutrition Facts">
+                <Grid Height="210" VerticalAlignment="Top">
+					<Grid.RowDefinitions>
+						<RowDefinition Height="100"/>
+						<RowDefinition Height="100"/>
+					</Grid.RowDefinitions>
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition Width="*"/>
+						<ColumnDefinition Width="*"/>
+					</Grid.ColumnDefinitions>
+				</Grid>
             </phone:PivotItem>
         </phone:Pivot>
     </Grid>

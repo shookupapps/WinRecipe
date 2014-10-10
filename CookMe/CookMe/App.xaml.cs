@@ -14,7 +14,7 @@ namespace CookMe
     public partial class App : Application
     {
         private static MainViewModel viewModel = null;
-
+       
         /// <summary>
         /// A static ViewModel used by the views to bind against.
         /// </summary>

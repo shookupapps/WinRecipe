@@ -52,7 +52,7 @@
 
         <!--ContentPanel - place additional content here-->
         <Grid x:Name="ContentPanel" Margin="12,138,12,0" Grid.RowSpan="2">
-            <ListBox x:Name="SubDishList" ItemsSource="{Binding}" FontFamily="Caviar Dreams" HorizontalAlignment="Left" Width="456" Background="{x:Null}" Tap="SubDishList_Tap">
+            <ListBox x:Name="SubDishList" ItemsSource="{Binding}" FontFamily="Arial" HorizontalAlignment="Left" Width="456" Background="{x:Null}" Tap="SubDishList_Tap">
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <Grid Height="200" Width="210" Background="{x:Null}" Margin="5,5,5,0" toolkit:TiltEffect.IsTiltEnabled="True" >
@@ -61,8 +61,9 @@
                                 <RowDefinition Height="40"/>
                             </Grid.RowDefinitions>
                             <Image Grid.Row="0" Grid.RowSpan="2" Source="{Binding FoodImage}" Stretch="UniformToFill"/>
-                            <Rectangle Grid.Row="1" Fill="Black" Opacity="0.4"/>
-                            <TextBlock Grid.Row="1" Text="{Binding FoodName}" Foreground="White" FontSize="22" FontFamily="Helvetica 45 Light" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <Image Grid.Row="0" Grid.RowSpan="2" Source="Assets/Filter Shade/small.png" Stretch="Fill" />
+                            <!--<Rectangle Grid.Row="1" Fill="Black" Opacity="0.4"/>-->
+                            <TextBlock Grid.Row="1" Text="{Binding FoodName}" Foreground="White" FontSize="22" FontFamily="Arial" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                         </Grid>
                     </DataTemplate>
                 </ListBox.ItemTemplate>

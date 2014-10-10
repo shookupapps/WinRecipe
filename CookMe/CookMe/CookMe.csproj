@@ -101,6 +101,9 @@
     <Compile Include="FavPage.xaml.cs">
       <DependentUpon>FavPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="FlashPage.xaml.cs">
+      <DependentUpon>FlashPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="LocalizedStrings.cs" />
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
@@ -130,6 +133,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="FavPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="FlashPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -171,6 +178,8 @@
     <Content Include="Assets\AppBar\feature.search.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Assets\ApplicationBar Icons\Home.png" />
+    <Content Include="Assets\ApplicationBar Icons\Shopping.png" />
     <Content Include="Assets\ApplicationIcon.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -214,6 +223,8 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Assets\Bg\PivoteBg.jpg" />
+    <Resource Include="Assets\Filter Shade\large.png" />
+    <Resource Include="Assets\Filter Shade\small.png" />
     <Resource Include="Assets\RecipeImages\chocolate-valentines-day.jpg" />
   </ItemGroup>
   <ItemGroup>

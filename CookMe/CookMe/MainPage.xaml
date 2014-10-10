@@ -13,7 +13,56 @@
     FontSize="{StaticResource PhoneFontSizeNormal}"
     Foreground="{StaticResource PhoneForegroundBrush}"
     SupportedOrientations="Portrait"  Orientation="Portrait"
-    shell:SystemTray.IsVisible="True">
+    shell:SystemTray.IsVisible="True" Loaded="PhoneApplicationPage_Loaded">
+	<phone:PhoneApplicationPage.Resources>
+		<Storyboard x:Name="MainPageFloatAnim">
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="SPLargeGrid">
+				<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.8" Value="1"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)" Storyboard.TargetName="SPLargeGrid">
+				<EasingDoubleKeyFrame KeyTime="0" Value="-14"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.8" Value="0"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="SPLeftGrid">
+				<EasingDoubleKeyFrame KeyTime="0:0:0.1" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.9" Value="1"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)" Storyboard.TargetName="SPLeftGrid">
+				<EasingDoubleKeyFrame KeyTime="0:0:0.1" Value="-8"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.9" Value="0"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="SPrightGrid">
+				<EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1" Value="1"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)" Storyboard.TargetName="SPrightGrid">
+				<EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="-10"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1" Value="-0.662"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimation Duration="0:0:0.2" To="0" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)" Storyboard.TargetName="SPrightGrid" d:IsOptimized="True"/>
+		</Storyboard>
+		<Storyboard x:Name="MainPageFloatAnimLong">
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="SPLargeGrid">
+				<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1.2" Value="1"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)" Storyboard.TargetName="SPLargeGrid">
+				<EasingDoubleKeyFrame KeyTime="0" Value="-12"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1.2" Value="0"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="SPLeftGrid">
+				<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1.6" Value="1"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="SPrightGrid">
+				<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.7" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:2.2" Value="1"/>
+			</DoubleAnimationUsingKeyFrames>
+		</Storyboard>
+	</phone:PhoneApplicationPage.Resources>
     <toolkit:TransitionService.NavigationInTransition>
         <toolkit:NavigationInTransition>
             <toolkit:NavigationInTransition.Backward>
@@ -53,32 +102,43 @@
                         <ColumnDefinition Width="*"/>
                         <ColumnDefinition Width="*"/>
                     </Grid.ColumnDefinitions>
-                    <Grid Grid.Row="0" Grid.ColumnSpan="2" Margin="0,0,0,5">
+                    <Grid x:Name="SPLargeGrid" Grid.Row="0" Grid.ColumnSpan="2" Margin="0,0,0,5" toolkit:TiltEffect.IsTiltEnabled="True" Tap="SPLargeGrid_Tap" RenderTransformOrigin="0.5,0.5">
+                    	<Grid.RenderTransform>
+                    		<CompositeTransform/>
+                    	</Grid.RenderTransform>
                         <Grid.RowDefinitions>
                             <RowDefinition Height="*"/>
                             <RowDefinition Height="50"/>
                         </Grid.RowDefinitions>
                         <Image Grid.Row="0" Grid.RowSpan="2" Source="/Assets/RecipeImages/Strawberry-Shortcake-No-Bake-Ice-Box-Cake-tsri.jpg" Stretch="UniformToFill"/>
-                        <Rectangle Grid.Row="1" Opacity="0.4" StrokeThickness="0" Fill="Black"/>
-                        <TextBlock Grid.Row="1" Text="Red Chocolate" FontFamily="Helvetica 45 Light" FontSize="25" VerticalAlignment="Center" Margin="5,0,0,0"/>
+						<Image Grid.Row="0" Grid.RowSpan="2" Source="Assets/Filter Shade/large.png" Stretch="Fill" />
+                        
+                        <TextBlock Grid.Row="1" Text="Red Chocolate" FontFamily="Arial" FontSize="25" VerticalAlignment="Center" Margin="5,0,0,0"/>
                     </Grid>
-                    <Grid Grid.Row="1" Grid.Column="0" Margin="0,0,2.5,0">
+                    <Grid x:Name="SPLeftGrid" Grid.Row="1" Grid.Column="0" Margin="0,0,2.5,0" RenderTransformOrigin="0.5,0.5">
+                    	<Grid.RenderTransform>
+                    		<CompositeTransform/>
+                    	</Grid.RenderTransform>
                         <Grid.RowDefinitions>
                             <RowDefinition Height="*"/>
                             <RowDefinition Height="50"/>
                         </Grid.RowDefinitions>
-                        <Image Grid.Row="0" Grid.RowSpan="2" Source="/Assets/RecipeImages/italian-side-dishes.jpg" Stretch="UniformToFill"/>
-                        <Rectangle Grid.Row="1" Opacity="0.4" StrokeThickness="0" Fill="Black"/>
-                        <TextBlock Grid.Row="1" Text="Red Chocolate" FontFamily="Helvetica 45 Light" FontSize="25" VerticalAlignment="Center" Margin="5,0,0,0"/>
+                        <Image Grid.Row="0" Grid.RowSpan="2" Source="/Assets/RecipeImages/italian-side-dishes.jpg" Stretch="UniformToFill" />
+                        <Image Grid.Row="0" Grid.RowSpan="2" Source="Assets/Filter Shade/small.png"/>
+                        <TextBlock Grid.Row="1" Text="Red Chocolate" FontFamily="Arial" FontSize="25" VerticalAlignment="Center" Margin="5,0,0,0"/>
                     </Grid>
-                    <Grid Grid.Row="1" Grid.Column="1" Margin="2.5,0,0,0">
+                    <Grid x:Name="SPrightGrid" Grid.Row="1" Grid.Column="1" Margin="2.5,0,0,0" RenderTransformOrigin="0.5,0.5">
+                    	<Grid.RenderTransform>
+                    		<CompositeTransform/>
+                    	</Grid.RenderTransform>
                         <Grid.RowDefinitions>
                             <RowDefinition Height="*"/>
                             <RowDefinition Height="50"/>
                         </Grid.RowDefinitions>
-                        <Image Grid.Row="0" Grid.RowSpan="2" Source="/Assets/RecipeImages/lasagne.jpg" Stretch="UniformToFill"/>
-                        <Rectangle Grid.Row="1" Opacity="0.4" StrokeThickness="0" Fill="Black"/>
-                        <TextBlock Grid.Row="1" Text="Red Chocolate" FontFamily="Helvetica 45 Light" FontSize="25" VerticalAlignment="Center" Margin="5,0,0,0"/>
+                        <Image Grid.Row="0" Grid.RowSpan="2" Source="/Assets/RecipeImages/lasagne.jpg" Stretch="UniformToFill" />
+						<Image  Grid.Row="0" Grid.RowSpan="2" Source="Assets/Filter Shade/small.png"/>
+                        
+                        <TextBlock Grid.Row="1" Text="Red Chocolate" FontFamily="Arial" FontSize="25" VerticalAlignment="Center" Margin="5,0,0,0"/>
                     </Grid>
                 </Grid>
                 <!--<Grid Margin="0,0,0,74"  >
@@ -95,7 +155,7 @@
 
             <!--Pivot item two-->
             <phone:PivotItem Header="What to Cook" Margin="0,10,0,0">
-                <ListBox x:Name="MainList" ItemsSource="{Binding}" FontFamily="Caviar Dreams" HorizontalAlignment="Left" Width="445" Background="{x:Null}" Margin="10,0,0,0" Tap="MainList_Tap">
+                <ListBox x:Name="MainList" ItemsSource="{Binding}" FontFamily="Arial" HorizontalAlignment="Left" Width="445" Background="{x:Null}" Margin="10,0,0,0" Tap="MainList_Tap">
                     <ListBox.ItemTemplate>
                         <DataTemplate>
                             <Grid Height="250" Width="420"  toolkit:TiltEffect.IsTiltEnabled="True" Background="{x:Null}" Margin="0,5,0,0">
@@ -104,8 +164,9 @@
                                     <RowDefinition Height="40"/>
                                 </Grid.RowDefinitions>
                                 <Image Grid.Row="0" Grid.RowSpan="2" Source="{Binding FoodImage}" Stretch="UniformToFill"/>
-                                <Rectangle Grid.Row="1" Fill="Black" Opacity="0.4"/>
-                                <TextBlock Grid.Row="1" Text="{Binding FoodName}" Foreground="White" FontSize="22" FontFamily="Helvetica 45 Light" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+								<Image Grid.Row="0" Grid.RowSpan="2" Source="Assets/Filter Shade/small.png" Stretch="Fill"/>
+                                <!--<Rectangle Grid.Row="1" Fill="Black" Opacity="0.4"/>-->
+                                <TextBlock Grid.Row="1" Text="{Binding FoodName}" Foreground="White" FontSize="22" FontFamily="Arial" HorizontalAlignment="Center"  VerticalAlignment="Center"/>
                             </Grid>
                         </DataTemplate>
                     </ListBox.ItemTemplate>
@@ -125,7 +186,7 @@
     <phone:PhoneApplicationPage.ApplicationBar>
         <shell:ApplicationBar x:Name="_0" IsVisible="True" IsMenuEnabled="True" Mode="Default" Opacity="1" BackgroundColor="#FFFF7400">
             <shell:ApplicationBarIconButton x:Name="Fav" IconUri="/Assets/AppBar/favs.png" Text="favourite" IsEnabled="True" Click="Fav_Click"  />
-            <shell:ApplicationBarIconButton x:Name="ShopList" IconUri="/Assets/AppBar/delete.png" Text="ShopList" IsEnabled="True" Click="ShopList_Click"  />
+            <shell:ApplicationBarIconButton x:Name="ShopList" IconUri="/Assets/ApplicationBar Icons/Shopping.png" Text="ShopList" IsEnabled="True" Click="ShopList_Click"  />
             <shell:ApplicationBarIconButton x:Name="Search" IconUri="/Assets/AppBar/feature.search.png" Text="Search" IsEnabled="True"   />
             <shell:ApplicationBarIconButton x:Name="More" IconUri="/Assets/AppBar/add.png" Text="more" IsEnabled="True"  />
 
